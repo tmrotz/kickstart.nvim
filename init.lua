@@ -227,10 +227,31 @@ require('lazy').setup({
 -- NOTE: You can change these options as you wish!
 
 -- Set highlight on search
-vim.o.hlsearch = false
+--vim.o.hlsearch = false
 
 -- Make line numbers default
 vim.wo.number = true
+
+-- Make line numbers relative
+vim.wo.relativenumber = true
+
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+
+vim.o.smartindent = true
+
+vim.o.wrap = false
+vim.o.incsearch = true
+
+vim.o.scrolloff = 8
+
+vim.o.updatecount = 50
+
+vim.o.colorcolumn = "80"
+
+vim.g.visualbell = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -269,9 +290,33 @@ vim.o.termguicolors = true
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
+vim.keymap.set('i', '<Esc>', '<Nop>')
+
 -- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+--vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+--vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- Move selected text up and down
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+
+vim.keymap.set('n', 'J', "mzJ`z")
+
+-- While half page jumping, stay centered
+--vim.keymap.set('n', '<C-d>', "<C-d>zz")
+--vim.keymap.set('n', '<C-u>', "<C-u>zz")
+
+-- While searching, keep found text in center of screen
+--vim.keymap.set('n', 'n', "nzzzv")
+--vim.keymap.set('n', 'N', "Nzzzv")
+
+
+--vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz')
+--vim.keymap.set('n', '<C-j>', '<cmd>cprev<CR>zz')
+--vim.keymap.set('n', '<leader>k>', '<cmd>lnext<CR>zz')
+--vim.keymap.set('n', '<leader>j>', '<cmd>lprev<CR>zz')
+
+
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -325,7 +370,7 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim' },
+    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'java', 'javascript', 'typescript', 'vimdoc', 'vim' },
   
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
@@ -472,6 +517,8 @@ local servers = {
       telemetry = { enable = false },
     },
   },
+
+  jdtls = {}
 }
 
 -- Setup neovim lua configuration
