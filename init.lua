@@ -292,6 +292,7 @@ vim.o.termguicolors = true
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 vim.keymap.set('i', '<Esc>', '<Nop>')
+vim.keymap.set('i', '<C-c>', '<Esc>')
 
 -- Remap for dealing with word wrap
 --vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
