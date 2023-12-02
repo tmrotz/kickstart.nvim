@@ -4,6 +4,17 @@
 -- See the kickstart.nvim README for more information
 return {
   {
+    'catppuccin/nvim',
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'catppuccin'
+      vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#6e738d", bold = true })
+      vim.api.nvim_set_hl(0, "LineNr", { fg = "#b4befe", bold = true })
+      vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#6e738d", bold = true })
+    end,
+  },
+
+  {
     "lukas-reineke/indent-blankline.nvim",
     opts = function(_, opts)
       -- Other blankline configuration here
