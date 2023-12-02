@@ -587,5 +587,16 @@ cmp.setup {
   },
 }
 
+local harpoon = require('harpoon')
+harpoon:setup({})
+
+vim.keymap.set('n', '<leader>ha', function()
+  harpoon:list():append()
+end, { desc = 'Harpoon [a]ppend' })
+
+vim.keymap.set('n', '<leader>hq', function()
+  harpoon.ui:toggle_quick_menu(harpoon:list())
+end, { desc = 'Harpoon [q]uick' })
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

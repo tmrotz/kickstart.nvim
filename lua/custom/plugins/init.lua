@@ -24,5 +24,11 @@ return {
       "TheGLander/indent-rainbowline.nvim",
     },
   },
+
+  {
+    "ThePrimeagen/harpoon",
+    requires = { "nvim-lua/plenary.nvim" },
+    branch = "harpoon2",
+  },
 }
 
