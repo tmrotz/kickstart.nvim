@@ -307,6 +307,7 @@ vim.keymap.set('n', '<C-j>', '<cmd>cprev<CR>zz', { desc = "Backward qfixlist" })
 --vim.keymap.set('n', '<leader>k>', '<cmd>lnext<CR>zz', { desc = "Forward location list" })
 --vim.keymap.set('n', '<leader>j>', '<cmd>lprev<CR>zz', { desc = "Backward location list" })
 
+vim.keymap.set('v', '<leader>p', '"_dP', { desc = "Don't yank on visual paste" })
 
 
 -- [[ Highlight on yank ]]
