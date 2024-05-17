@@ -123,7 +123,17 @@ require('lazy').setup({
         changedelete = { text = '~' },
       },
       on_attach = function(bufnr)
-        vim.keymap.set('n', '<leader>hp', require('gitsigns').preview_hunk, { buffer = bufnr, desc = 'Preview git hunk' })
+        local gitsigns = require('gitsigns')
+        vim.keymap.set('n', '<leader>ghp', gitsigns.preview_hunk, { buffer = bufnr, desc = 'Preview git hunk' })
+        vim.keymap.set('n', '<leader>ghi', gitsigns.preview_hunk_inline, { buffer = bufnr, desc = 'Inline preview git hunk' })
+
+        vim.keymap.set('n', '<leader>ghr', gitsigns.reset_hunk, { buffer = bufnr, desc = 'Reset git hunk' })
+        vim.keymap.set('v', '<leader>ghr', function() gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+
+        vim.keymap.set('n', '<leader>ghs', gitsigns.stage_hunk, { buffer = bufnr, desc = 'Stage git hunk' })
+        vim.keymap.set('v', '<leader>ghs', function() gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+
+        vim.keymap.set('n', '<leader>ghu', gitsigns.undo_stage_hunk, { buffer = bufnr, desc = 'Undo stage git hunk' })
 
         -- don't override the built-in and fugitive keymaps
         local gs = package.loaded.gitsigns
@@ -483,7 +493,8 @@ require('which-key').register({
   ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
   ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
   ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-  ['<leader>h'] = { name = 'More git', _ = 'which_key_ignore' },
+  ['<leader>gh'] = { name = '[H]unk', _ = 'which_key_ignore' },
+  ['<leader>h'] = { name = '[H]arpoon', _ = 'which_key_ignore' },
   ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
   ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
