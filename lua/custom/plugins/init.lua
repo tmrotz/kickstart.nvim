@@ -3,65 +3,50 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-  {
+  { -- You can easily change to a different colorscheme.
+    -- Change the name of the colorscheme plugin below, and then
+    -- change the command in the config to whatever the name of that colorscheme is.
+    --
+    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     'catppuccin/nvim',
-    priority = 1000,
-    config = function()
+    lazy = true,
+    -- priority = 1000, -- Make sure to load this before all the other start plugins.
+    init = function()
+      -- Load the colorscheme here.
+      -- Like many other themes, this one has different styles, and you could load
+      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       vim.cmd.colorscheme 'catppuccin'
-      vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#6e738d", bold = true })
-      vim.api.nvim_set_hl(0, "LineNr", { fg = "#b4befe", bold = true })
-      vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#6e738d", bold = true })
+
+      vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#6e738d', bold = true })
+      vim.api.nvim_set_hl(0, 'LineNr', { fg = '#b4befe', bold = true })
+      vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = '#6e738d', bold = true })
+
+      -- You can configure highlights by doing something like:
+      vim.cmd.hi 'Comment gui=none'
     end,
   },
 
   {
-    "lukas-reineke/indent-blankline.nvim",
-    opts = function(_, opts)
-      -- Other blankline configuration here
-      return require("indent-rainbowline").make_opts(opts)
-    end,
-    dependencies = {
-      "TheGLander/indent-rainbowline.nvim",
-    },
+    'ThePrimeagen/harpoon',
+    requires = { 'nvim-lua/plenary.nvim' },
+    branch = 'harpoon2',
   },
 
   {
-    "ThePrimeagen/harpoon",
-    requires = { "nvim-lua/plenary.nvim" },
-    branch = "harpoon2",
-  },
-
-  {
-    "tris203/hawtkeys.nvim",
+    'tris203/hawtkeys.nvim',
     config = true,
   },
 
-  -- {
-  --   "christoomey/vim-tmux-navigator",
-  --   cmd = {
-  --     "TmuxNavigateLeft",
-  --     "TmuxNavigateDown",
-  --     "TmuxNavigateUp",
-  --     "TmuxNavigateRight",
-  --     "TmuxNavigatePrevious",
-  --   },
-  --   keys = {
-  --     { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-  --     { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-  --     { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-  --     { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-  --     { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
-  --   }
-  -- },
-
   {
-    "stevearc/oil.nvim",
-    opts = {},
-    -- Optional dependencies
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = {
+    'stevearc/oil.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    lazy = false,
+    keys = {
+      { '-', '<CMD>Oil<CR>', desc = 'Open parent directory' },
+    },
+    opts = {
+      default_file_explorer = true,
       view_options = {
-        -- Show files and directories that start with "."
         show_hidden = true,
       },
     },
@@ -70,20 +55,12 @@ return {
   {
     'goolord/alpha-nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function ()
-      require'alpha'.setup(require'alpha.themes.startify'.config)
-    end
+    config = function()
+      require('alpha').setup(require('alpha.themes.startify').config)
+    end,
   },
 
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-    }
+    'tpope/vim-fugitive',
   },
 }
-
