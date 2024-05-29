@@ -4,12 +4,6 @@
 -- See the kickstart.nvim README for more information
 return {
   {
-    'ThePrimeagen/harpoon',
-    requires = { 'nvim-lua/plenary.nvim' },
-    branch = 'harpoon2',
-  },
-
-  {
     'tris203/hawtkeys.nvim',
     config = true,
   },

@@ -294,14 +294,15 @@ require('lazy').setup({
           s = { name = '[S]earch', _ = 'which_key_ignore' },
           w = { name = '[W]orkspace', _ = 'which_key_ignore' },
           t = { name = '[T]oggle', _ = 'which_key_ignore' },
-          h = { name = 'Git [H]unk', _ = 'which_key_ignore' },
+          g = { name = '[G]it', _ = 'which_key_ignore' },
+          h = { name = '[H]arpoon', _ = 'which_key_ignore' },
         },
       }
 
       -- visual mode
       require('which-key').register({
         ['<leader>'] = {
-          h = { 'Git [H]unk' },
+          g = { '[G]it' },
         },
       }, { mode = 'v' })
     end,
