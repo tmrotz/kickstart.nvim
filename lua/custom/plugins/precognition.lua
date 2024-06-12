@@ -1,5 +1,6 @@
 return {
   'tris203/precognition.nvim',
+  enabled = true,
   --event = "VeryLazy",
   opts = {
     -- startVisible = true,
