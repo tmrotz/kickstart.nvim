@@ -9,3 +9,5 @@ vim.opt.colorcolumn = '80'
 vim.opt.visualbell = true
 
 vim.opt.tabstop = 4
+
+vim.opt.undofile = true
