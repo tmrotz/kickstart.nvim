@@ -26,6 +26,10 @@ return {
         :find()
     end
 
+    require('which-key').add {
+      { '<leader>h', group = '[H]arpoon', icon = '󱡅' },
+    }
+
     vim.keymap.set('n', '<leader>ha', function()
       harpoon:list():add()
     end, { desc = 'Add buffer' })
