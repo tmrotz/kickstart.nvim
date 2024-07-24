@@ -600,6 +600,8 @@ require('lazy').setup({
 
         jdtls = {},
 
+        tsserver = {},
+
         zls = {},
       }
 
@@ -827,7 +829,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'java', 'zig', 'python' },
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'java', 'zig', 'python', 'javascript' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
