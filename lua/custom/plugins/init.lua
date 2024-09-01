@@ -27,9 +27,7 @@ return {
     },
     event = 'VeryLazy',
     config = function()
-      require('tiny-devicons-auto-colors').setup {
-        colors = require('catppuccin.palettes').get_palette(),
-      }
+      require('tiny-devicons-auto-colors').setup()
     end,
   },
 }

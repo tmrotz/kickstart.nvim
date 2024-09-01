@@ -18,3 +18,5 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 --vim.keymap.set('n', '<leader>j>', '<cmd>lprev<CR>zz', { desc = "Backward location list" })
 
 vim.keymap.set('v', '<leader>p', '"_dP', { desc = "Don't yank on visual paste" })
+
+vim.keymap.set({ 'n', 'x' }, 's', '<Nop>')
