@@ -1,5 +1,3 @@
-vim.opt.relativenumber = true
-
 vim.opt.wrap = false
 
 vim.opt.listchars = { tab = '» ', trail = '󰈸', nbsp = '␣', space = '·', eol = '' }
