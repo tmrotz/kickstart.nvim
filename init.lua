@@ -643,8 +643,6 @@ require('lazy').setup({
 
         jdtls = {},
 
-        tsserver = {},
-
         zls = {},
       }
 
