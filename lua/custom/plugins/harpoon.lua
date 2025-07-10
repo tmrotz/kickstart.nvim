@@ -34,6 +34,10 @@ return {
       harpoon:list():add()
     end, { desc = 'Add buffer' })
 
+    vim.keymap.set('n', '<leader>hc', function()
+      harpoon:list():clear()
+    end, { desc = 'Clear buffers' })
+
     vim.keymap.set('n', '<leader>hq', function()
       toggle_telescope(harpoon:list())
     end, { desc = 'Open harpoon window' })

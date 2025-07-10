@@ -166,6 +166,6 @@ return {
       },
     }
 
-    require('dap-python').setup '.venv/bin/python'
+    require('dap-python').setup 'venv/bin/python'
   end,
 }
